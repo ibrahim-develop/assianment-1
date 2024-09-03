@@ -3,18 +3,34 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto';
-
   }
   .container{
-    background-color: #f7f2f2;
+    background-color: hsl(0, 24%, 96%);
+    transform: translateY(10px);
+    transition: all;
+  }
+  body h2,p,span,h1,h3,h4,i,div {
+    animation: animate 0.9s ease-in 1 reverse;
+}
+@keyframes animate {
+    100%{
+        transform: translateY(10px);
+    }
   }
   /* nav__bar */
   .nav__bar {
     height: 150px;
     width: 100%;
-    background: #f8f6f6;
+    background-color: rgba(255, 255, 255, 0.562);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
     display: flex;
     justify-content: space-between;
+    padding: 0;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
   }
   /* nav__logo */
   .logo {
@@ -46,11 +62,28 @@
     text-decoration: none;
     color: rgb(40, 10, 58);
   }
-  .page__links {
+  #navbar {
     padding-top: 20%;
   }
-  .page__links li a {
+  #navbar li a {
     color: #000;
+  }
+  #navbar li a:hover {
+    color: rgb(40, 10, 58);
+    position: relative;
+  }
+  #navbar li a:hover::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+      background: rgb(40, 10, 58);
+    position: absolute;
+    bottom: -4px;
+    right: 0px;
+
+  }
+  #section-1,#section-2,#section-3,#section-4,#section-5,#section-6,#section-7,#section-8 {
+    transition: all 0.2s ease-in;
   }
   /* section__1 */
   .section__1 {
@@ -117,7 +150,7 @@
     height: 700px;
     text-align: center;
     padding-top: 50px;
-    margin-bottom:20px; ;
+    margin-bottom:20px;
   }
   /* part__1 */
   .part__1 {
@@ -527,6 +560,26 @@
     font-size: 20px;
     padding-left: 12px;
     margin-top: 22px;
+  }
+
+  /* animation */
+  @keyframes appear {
+    from{
+      opacity:0;
+      scale: 0.2;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  .block {
+    animation: appear 0.5s linear;
+  }
+  .block_1 {
+    animation: appear 0.5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
   }
 
   /* media querry */
